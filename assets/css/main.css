@@ -2473,11 +2473,20 @@ input, select, textarea {
 			background: #272833;
 			border-radius: 100%;
 			cursor: default;
-			display: inline-block;
+			display: -moz-inline-flexbox;
+			display: -webkit-inline-flex;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
 			height: 6em;
-			line-height: 5.65em;
 			margin: 0 0 2em 0;
-			text-align: center;
 			width: 6em;
 		}
 
