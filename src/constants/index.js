@@ -151,7 +151,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'NestNav',
-    description: 'A comprehensive navigation and mapping solution. (Add your description here!)',
+    description: 'A relocation dashboard that helps students and young professionals balance the cost of living with the pain of a commute.',
     tags: [
       {
         name: 'react',
@@ -173,7 +173,7 @@ const projects = [
   {
     id: 'project-2',
     name: 'YouTube Calendar',
-    description: 'A robust scheduling and time-management application. (Add your description here!)',
+    description: 'A calendar-based dashboard that displays recent uploads from your YouTube subscriptions',
     tags: [
       {
         name: 'react',
@@ -195,7 +195,7 @@ const projects = [
   {
     id: 'project-3',
     name: 'Nonogram Solver',
-    description: 'An interactive logic puzzle game built for the web. (Add your description here!)',
+    description: 'A web-based Nonogram puzzle generator with an animated solver and the ability for users to customize the puzzle.',
     tags: [
       {
         name: 'javascript',
@@ -217,7 +217,7 @@ const projects = [
   {
     id: 'project-4',
     name: 'Algorithm Visualizer',
-    description: 'A visualizer for complex algorithms and data structures. (Add your description here!)',
+    description: 'A visualizer for complex algorithms and data structures.',
     tags: [
       {
         name: 'python',

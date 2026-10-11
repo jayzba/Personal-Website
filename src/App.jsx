@@ -22,11 +22,11 @@ const App = () => {
           <About />
         </div>
 
-        <div className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
+        <div className="bg-tech bg-cover bg-center bg-no-repeat py-14 sm:py-20">
           <Tech />
         </div>
 
-        <div className="bg-bgLight2 pb-10 pt-10">
+        <div className="bg-bgLight2 py-14 sm:py-20">
           <Projects />
         </div>
 

@@ -6,6 +6,35 @@ import { github, pineapple, pineappleHover } from '../assets';
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
 
+const cardVariants = (index) => {
+  const baseDelay = 0.25;
+  const stagger = 0.35;
+  const cardDelay = baseDelay + index * stagger;
+
+  return {
+    hidden: {
+      x: -80,
+      opacity: 0,
+    },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 70,
+        damping: 18,
+        mass: 0.8,
+        delay: cardDelay,
+        opacity: {
+          duration: 0.8,
+          ease: 'easeOut',
+          delay: cardDelay + 0.15,
+        },
+      },
+    },
+  };
+};
+
 const ProjectCard = ({
   id,
   name,
@@ -19,11 +48,15 @@ const ProjectCard = ({
 }) => {
   return (
     <motion.div
-      variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-      className={`relative ${active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
-        } flex items-center justify-center min-w-[170px] 
-      h-[420px] cursor-pointer card-shadow overflow-hidden rounded-[24px]`}
-      style={{ transition: 'flex 0.7s ease-in-out' }}
+      variants={cardVariants(index)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      className={`relative ${active === id
+          ? 'lg:flex-[3.5] flex-[10] h-[460px] sm:h-[480px] lg:h-[420px]'
+          : 'lg:flex-[0.5] flex-[2] h-[130px] sm:h-[150px] lg:h-[420px]'
+        } flex items-center justify-center min-w-[170px] w-full cursor-pointer card-shadow overflow-hidden rounded-[24px]`}
+      style={{ transition: 'flex 0.7s ease-in-out, height 0.7s ease-in-out' }}
       onClick={() => handleClick(active === id ? '' : id)}
       onMouseEnter={() => {
         if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
@@ -42,22 +75,25 @@ const ProjectCard = ({
 
       {/* Inactive Title */}
       <div
-        className={`absolute inset-0 flex items-center justify-start transition-opacity duration-[0.3s] ease-in-out ${active !== id ? 'opacity-100 delay-[0.4s] z-20' : 'opacity-0 z-0 pointer-events-none'
+        className={`absolute inset-0 flex items-center justify-between p-6 sm:p-8 transition-opacity duration-[0.3s] ease-in-out ${active !== id ? 'opacity-100 delay-[0.4s] z-20' : 'opacity-0 z-0 pointer-events-none'
           }`}>
         <h3
           className="font-extrabold font-beckman uppercase whitespace-nowrap sm:text-[27px] text-[20px] text-bgLight3 tracking-[1px]
-      absolute z-0 bottom-6 left-6 lg:bottom-[7rem] lg:left-auto lg:rotate-[-90deg] lg:origin-[0,0]
-      leading-none drop-shadow-md">
+          text-left lg:absolute lg:bottom-8 lg:left-[calc(100%-1.75rem)] lg:rotate-[-90deg] lg:origin-bottom-left
+          leading-none drop-shadow-md">
           {name}
         </h3>
+        <span className="lg:hidden text-bgLight3 text-[12px] font-poppins font-medium bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
+          Tap to view
+        </span>
       </div>
 
       {/* Active Content */}
       <div
-        className={`absolute bottom-0 p-8 justify-start w-full 
-        flex-col bg-[rgba(231,227,237,0.85)] z-20 transition-opacity duration-[0.3s] ease-in-out ${active === id ? 'opacity-100 delay-[0.4s]' : 'opacity-0 pointer-events-none'
+        className={`absolute bottom-0 p-6 sm:p-8 justify-start w-full 
+        flex-col bg-[rgba(231,227,237,0.92)] z-20 transition-opacity duration-[0.3s] ease-in-out ${active === id ? 'opacity-100 delay-[0.4s]' : 'opacity-0 pointer-events-none'
           }`}>
-        <div className="absolute inset-0 flex justify-end m-3">
+        <div className="absolute top-4 right-4 flex justify-end">
           <div
             onClick={(e) => {
               e.stopPropagation();
@@ -65,7 +101,7 @@ const ProjectCard = ({
             }}
             className="bg-night sm:w-11 sm:h-11 w-10 h-10 rounded-full 
               flex justify-center items-center cursor-pointer
-              sm:opacity-[0.9] opacity-[0.8] hover:bg-taupe transition-colors">
+              sm:opacity-[0.9] opacity-[0.8] hover:bg-taupe transition-colors shadow-md">
             <img
               src={github}
               alt="source code"
@@ -76,13 +112,13 @@ const ProjectCard = ({
 
         <h2
           className="font-bold sm:text-[32px] text-[24px] 
-          text-accentPurple uppercase font-beckman sm:mt-0 -mt-[1rem]">
+          text-accentPurple uppercase font-beckman sm:mt-0 mt-0 pr-12 text-left">
           {name}
         </h2>
         <p
-          className="text-accentGreen sm:text-[14px] text-[12px] 
-          max-w-3xl sm:leading-[24px] leading-[18px]
-          font-poppins tracking-[1px] font-medium">
+          className="text-accentGreen sm:text-[14px] text-[13px] 
+          max-w-3xl sm:leading-[24px] leading-[20px] mt-2
+          font-poppins tracking-[0.5px] font-medium text-left">
           {description}
         </p>
         <button
@@ -118,28 +154,29 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const [active, setActive] = useState('project-1');
+  const [active, setActive] = useState('');
 
   return (
-    <div className="sm:-mt-[6rem] mt-0">
-      <div>
+    <div>
+      <motion.div variants={textVariant()}>
         <h2 className={`${styles.sectionHeadTextLight}`}>Projects</h2>
-      </div>
+      </motion.div>
 
       <div className="w-full flex">
-        <p className="mt-4 text-accentGreen text-[18px] max-w-3xl leading-[30px]">
+        <motion.p
+          variants={fadeIn('', '', 0.1, 1)}
+          className="mt-4 text-accentGreen text-[18px] max-w-3xl leading-[30px]">
           These projects demonstrate my expertise with practical examples of
           some of my work, including brief descriptions and links to code
           repositories and live demos. They showcase my ability to tackle
           intricate challenges, adapt to various technologies, and efficiently
           oversee projects.
-        </p>
+        </motion.p>
       </div>
 
       <div className={`${styles.innerWidth} mx-auto flex flex-col`}>
-        {/* Reminder, Add min-h-[70vh] back to the class name between flex-col and gap-5 when you get some experience*/}
         <div
-          className="mt-[50px] flex lg:flex-row flex-col gap-5"
+          className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5"
           onMouseLeave={() => setActive('')}>
           {projects.map((project, index) => (
             <ProjectCard
