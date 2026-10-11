@@ -36,7 +36,7 @@ const About = () => {
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-accentGreen sm:text-[20px] text-[19px] max-w-3xl sm:leading-[34px] leading-[32px]">
+        className="mt-4 text-accentGreen text-[18px] max-w-3xl leading-[30px]">
         I'm a graduate from UT Dallas who believes the best technology disappears into great experiences. My approach is simple: understand deeply, build iteratively, and never stop learning. Whether I'm designing full-stack applications or solving complex problems, I'm obsessed with the details that make a product feel effortless to use. I am constantly expanding my skillset through hands-on projects, team collaborations, and real-world problem-solving.
         <br /><br />
         I thrive in collaborative environments where ideas flow freely and diverse perspectives push solutions further. I always bring curiosity, drive, and a growth-oriented mentality to my work. When I'm away from the keyboard, you can usually find me playing basketball, watching TV, or unwinding with video games. Ultimately, I'm looking for opportunities where I can contribute meaningfully and build software that genuinely improves people's lives.

@@ -42,12 +42,11 @@ const ProjectCard = ({
 
       {/* Inactive Title */}
       <div
-        className={`absolute inset-0 flex items-center justify-start pr-[4.5rem] transition-opacity duration-[0.3s] ease-in-out ${active !== id ? 'opacity-100 delay-[0.4s] z-20' : 'opacity-0 z-0 pointer-events-none'
+        className={`absolute inset-0 flex items-center justify-start transition-opacity duration-[0.3s] ease-in-out ${active !== id ? 'opacity-100 delay-[0.4s] z-20' : 'opacity-0 z-0 pointer-events-none'
           }`}>
         <h3
-          className="font-extrabold font-beckman uppercase w-[200px] h-[30px] 
-      whitespace-nowrap sm:text-[27px] text-[18px] text-bgLight3 tracking-[1px]
-      absolute z-0 lg:bottom-[7rem] lg:rotate-[-90deg] lg:origin-[0,0]
+          className="font-extrabold font-beckman uppercase whitespace-nowrap sm:text-[27px] text-[20px] text-bgLight3 tracking-[1px]
+      absolute z-0 bottom-6 left-6 lg:bottom-[7rem] lg:left-auto lg:rotate-[-90deg] lg:origin-[0,0]
       leading-none drop-shadow-md">
           {name}
         </h3>
@@ -119,7 +118,7 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState('project-1');
 
   return (
     <div className="sm:-mt-[6rem] mt-0">
@@ -128,7 +127,7 @@ const Projects = () => {
       </div>
 
       <div className="w-full flex">
-        <p className="mt-4 text-accentGreen sm:text-[20px] text-[19px] max-w-3xl sm:leading-[34px] leading-[32px]">
+        <p className="mt-4 text-accentGreen text-[18px] max-w-3xl leading-[30px]">
           These projects demonstrate my expertise with practical examples of
           some of my work, including brief descriptions and links to code
           repositories and live demos. They showcase my ability to tackle
@@ -137,12 +136,7 @@ const Projects = () => {
         </p>
       </div>
 
-      <motion.div
-        variants={staggerContainer()}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.05 }}
-        className={`${styles.innerWidth} mx-auto flex flex-col`}>
+      <div className={`${styles.innerWidth} mx-auto flex flex-col`}>
         {/* Reminder, Add min-h-[70vh] back to the class name between flex-col and gap-5 when you get some experience*/}
         <div
           className="mt-[50px] flex lg:flex-row flex-col gap-5"
@@ -157,7 +151,7 @@ const Projects = () => {
             />
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -31,29 +31,25 @@ const Navbar = () => {
         <div className="sm:hidden flex flex-1 w-full justify-end items-center">
           {toggle ? (
             <div
-              className={`p-6 bg-flashWhite opacity-[0.98] absolute 
-                top-0 left-0 w-screen h-[100vh] z-10 menu ${
-                  toggle ? 'menu-open' : 'menu-close'
-                }`}>
-              <div className="flex justify-end">
+              className={`p-6 bg-flashWhite fixed inset-0 w-full h-screen z-50 flex flex-col justify-between menu ${
+                toggle ? 'menu-open' : 'menu-close'
+              }`}>
+              <div className="flex justify-end pt-2 pr-2">
                 <img
                   src={close}
                   alt="close"
-                  className="w-[22px] h-[22px] object-contain cursor-pointer"
+                  className="w-[28px] h-[28px] object-contain cursor-pointer"
                   onClick={() => setToggle(!toggle)}
                 />
               </div>
-              <ul
-                className="list-none flex flex-col -gap-[1rem] 
-                items-start justify-end mt-[10rem] -ml-[35px]">
+              <ul className="list-none flex flex-col items-center justify-center flex-1 gap-7 -mt-10">
                 {navLinks.map((nav) => (
                   <li
                     id={nav.id}
                     key={nav.id}
                     className={`${
                       active === nav.title ? 'text-accentGreen' : 'text-accentPurple'
-                    } text-[88px] font-bold font-poppins 
-                      uppercase tracking-[1px] cursor-pointer`}
+                    } text-[30px] font-bold font-poppins uppercase tracking-[3px] cursor-pointer hover:text-accentGreen transition-colors`}
                     onClick={() => {
                       setToggle(!toggle);
                       setActive(nav.title);
