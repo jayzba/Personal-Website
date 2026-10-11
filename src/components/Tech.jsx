@@ -15,10 +15,10 @@ const Tech = () => {
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-accentGreen text-[18px] max-w-3xl leading-[30px]">
+        className="mt-4 text-accentGreen sm:text-[20px] text-[19px] max-w-3xl sm:leading-[34px] leading-[32px]">
         I am a Software Developer focused on building clean, responsive, and reliable web applications. My work centers around full-stack development, seamless API integrations, and intuitive user interfaces, with an emphasis on writing maintainable code that solves practical problems. I enjoy taking ideas from initial concept to a polished, working product.
         <br /><br />
-        Great software isn't just about code—it’s built through clear communication, collaboration, and continuous learning. Whether building independently or working alongside a team, I approach projects with ownership, adaptability, and an eagerness to pick up new tools as challenges evolve. Below is a snapshot of the core technologies and tools I've actively used to bring my projects to life.
+        Great software isn't just about code, it’s built through clear communication, collaboration, and continuous learning. Whether building independently or working alongside a team, I approach projects with ownership, adaptability, and an eagerness to pick up new tools as challenges evolve. Below is a snapshot of the core technologies and tools I've actively used to bring my projects to life.
       </motion.p>
 
       <div className="flex flex-wrap justify-center gap-10 mt-14">

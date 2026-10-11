@@ -13,6 +13,7 @@ import {
   nodejs,
   git,
   firebase,
+  python,
   figma,
   docker,
   postgresql,
@@ -108,6 +109,10 @@ const technologies = [
   {
     name: 'Firebase',
     icon: firebase,
+  },
+  {
+    name: 'Python',
+    icon: python,
   },
 ];
 

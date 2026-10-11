@@ -37,9 +37,12 @@
   color-scheme: light;
 }
 
+html,
 body {
   background-color: #EDECE4;
   color: #42256E;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .nav-links::after {

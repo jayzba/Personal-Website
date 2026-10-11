@@ -36,6 +36,7 @@ import graphql from './tech/graphql.png';
 import postgresql from './tech/postgresql.png';
 import rubyrails from './tech/rubyrails.png';
 import firebase from './tech/firebase.png';
+import python from './tech/python.png';
 
 import coverhunt from './company/coverhunt.png';
 import dcc from './company/dcc.png';
@@ -90,6 +91,7 @@ export {
   tailwind,
   typescript,
   firebase,
+  python,
   komikult,
   leaderboard,
   math,

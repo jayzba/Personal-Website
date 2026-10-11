@@ -25,7 +25,11 @@ const ProjectCard = ({
       h-[420px] cursor-pointer card-shadow overflow-hidden rounded-[24px]`}
       style={{ transition: 'flex 0.7s ease-in-out' }}
       onClick={() => handleClick(active === id ? '' : id)}
-      onMouseEnter={() => handleClick(id)}>
+      onMouseEnter={() => {
+        if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+          handleClick(id);
+        }
+      }}>
       <div
         className="absolute top-0 left-0 z-10 bg-jetLight 
       h-full w-full opacity-[0.5]"></div>
@@ -118,28 +122,26 @@ const Projects = () => {
   const [active, setActive] = useState('');
 
   return (
-    <div className="-mt-[6rem]">
-      <motion.div variants={textVariant()}>
+    <div className="sm:-mt-[6rem] mt-0">
+      <div>
         <h2 className={`${styles.sectionHeadTextLight}`}>Projects</h2>
-      </motion.div>
+      </div>
 
       <div className="w-full flex">
-        <motion.p
-          variants={fadeIn('', '', 0.1, 1)}
-          className="mt-4 text-accentGreen text-[18px] max-w-3xl leading-[30px]">
+        <p className="mt-4 text-accentGreen sm:text-[20px] text-[19px] max-w-3xl sm:leading-[34px] leading-[32px]">
           These projects demonstrate my expertise with practical examples of
           some of my work, including brief descriptions and links to code
           repositories and live demos. They showcase my ability to tackle
           intricate challenges, adapt to various technologies, and efficiently
           oversee projects.
-        </motion.p>
+        </p>
       </div>
 
       <motion.div
-        variants={staggerContainer}
+        variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.05 }}
         className={`${styles.innerWidth} mx-auto flex flex-col`}>
         {/* Reminder, Add min-h-[70vh] back to the class name between flex-col and gap-5 when you get some experience*/}
         <div

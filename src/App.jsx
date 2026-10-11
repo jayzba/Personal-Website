@@ -18,18 +18,15 @@ const App = () => {
           <Hero />
         </div>
 
-        {/* Previous sizing: <div className="bg-bgLight1 pb-10 pt-10"> */}
-        <div className="bg-bgLight1 w-full h-screen flex items-center justify-center relative">
+        <div className="bg-bgLight1 pb-10 pt-10">
           <About />
         </div>
 
-        {/* Previous sizing: <div className="bg-tech bg-cover bg-center bg-no-repeat pb-10"> */}
-        <div className="bg-tech bg-cover bg-center bg-no-repeat w-full h-screen flex items-center justify-center relative">
+        <div className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
           <Tech />
         </div>
 
-        {/* Previous sizing: <div className="bg-bgLight2 pb-10 pt-10"> */}
-        <div className="bg-bgLight2 w-full h-screen flex items-center justify-center relative">
+        <div className="bg-bgLight2 pb-10 pt-10">
           <Projects />
         </div>
 
@@ -44,8 +41,7 @@ const App = () => {
           </div>
         </div>
         */}
-        {/* Previous sizing: <div className="relative z-0 bg-bgLight1 pt-10 pb-10"> */}
-        <div className="relative z-0 bg-bgLight1 w-full h-screen flex items-center justify-center">
+        <div className="relative z-0 bg-bgLight1 pt-10 pb-10">
           <Contact />
         </div>
       </div>
